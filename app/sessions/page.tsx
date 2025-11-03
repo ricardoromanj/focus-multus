@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useApp } from '@/components/AppProvider';
 import { Header } from '@/components/Header';
 import { SessionsList } from '@/components/SessionsList';
+import { SiteContainer } from '@/components/SiteContainer';
 import { supabase } from '@/lib/supabase';
 import type { Booking } from '@/types';
 
@@ -82,14 +83,15 @@ export default function SessionsPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-fm-bg)' }}>
       <Header
         currentUser={currentUser}
         users={users}
         onUserChange={setCurrentUserId}
       />
       
-      <main className="mx-auto max-w-5xl px-6 py-8">
+      <main className="py-10 sm:py-12">
+        <SiteContainer>
         <div className="mb-8">
           <h1 className="text-display mb-2" style={{ color: 'var(--color-fm-text)' }}>
             My Sessions
@@ -160,6 +162,7 @@ export default function SessionsPage() {
             </div>
           </>
         )}
+        </SiteContainer>
       </main>
     </div>
   );

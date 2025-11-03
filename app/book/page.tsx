@@ -3,6 +3,7 @@
 import { useApp } from '@/components/AppProvider';
 import { Header } from '@/components/Header';
 import { BookingCalendar } from '@/components/BookingCalendar';
+import { SiteContainer } from '@/components/SiteContainer';
 
 export default function BookPage() {
   const { currentUser, users, setCurrentUserId, refreshUser } = useApp();
@@ -19,27 +20,29 @@ export default function BookPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-fm-bg)' }}>
       <Header
         currentUser={currentUser}
         users={users}
         onUserChange={setCurrentUserId}
       />
       
-      <main className="mx-auto max-w-7xl px-6 py-8">
-        <div className="mb-8">
-          <h1 className="text-display mb-2" style={{ color: 'var(--color-fm-text)' }}>
-            Book a Room
-          </h1>
-          <p style={{ color: 'var(--color-fm-text-secondary)' }}>
-            Select a time slot on the calendar to book a focus or conference room
-          </p>
-        </div>
+      <main className="py-10 sm:py-12">
+        <SiteContainer>
+          <div className="mb-8">
+            <h1 className="text-display mb-2" style={{ color: 'var(--color-fm-text)' }}>
+              Book a Room
+            </h1>
+            <p style={{ color: 'var(--color-fm-text-secondary)' }}>
+              Select a time slot on the calendar to book a focus or conference room
+            </p>
+          </div>
 
-        <BookingCalendar
-          userId={currentUser.id}
-          onBookingComplete={refreshUser}
-        />
+          <BookingCalendar
+            userId={currentUser.id}
+            onBookingComplete={refreshUser}
+          />
+        </SiteContainer>
       </main>
     </div>
   );

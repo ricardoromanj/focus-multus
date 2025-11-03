@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useApp } from '@/components/AppProvider';
 import { Header } from '@/components/Header';
+import { SiteContainer } from '@/components/SiteContainer';
 
 export default function AdminPage() {
   const { currentUser, users, setCurrentUserId, refreshUser } = useApp();
@@ -54,14 +55,15 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-fm-bg)' }}>
       <Header
         currentUser={currentUser}
         users={users}
         onUserChange={setCurrentUserId}
       />
       
-      <main className="mx-auto max-w-3xl px-6 py-8">
+      <main className="py-10 sm:py-12">
+        <SiteContainer>
         <div className="mb-8">
           <h1 className="text-display mb-2" style={{ color: 'var(--color-fm-text)' }}>
             Admin Utilities
@@ -180,6 +182,7 @@ export default function AdminPage() {
             My Sessions
           </a>
         </div>
+        </SiteContainer>
       </main>
     </div>
   );

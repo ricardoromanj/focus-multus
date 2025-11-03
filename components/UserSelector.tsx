@@ -30,19 +30,25 @@ export function UserSelector({ users, currentUserId, onUserChange }: UserSelecto
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 rounded-xl transition-smooth text-body"
+        className="flex items-center gap-3 px-5 py-3 rounded-xl transition-smooth border"
         style={{
-          backgroundColor: 'var(--color-fm-surface-elevated)',
-          border: '1px solid var(--color-fm-border)',
+          backgroundColor: 'var(--color-fm-surface)',
+          borderColor: 'var(--color-fm-border)',
           color: 'var(--color-fm-text)'
         }}
       >
-        <span className="font-medium">{currentUser?.name || 'Select User'}</span>
+        <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(34, 181, 173, 0.2)' }}>
+          <span className="text-sm font-semibold" style={{ color: 'var(--color-fm-aqua-500)' }}>
+            {currentUser?.name.split(' ').map(n => n[0]).join('') || 'U'}
+          </span>
+        </div>
+        <span className="text-sm font-medium">{currentUser?.name || 'Select User'}</span>
         <svg
           className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          style={{ color: 'var(--color-fm-text-secondary)' }}
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>

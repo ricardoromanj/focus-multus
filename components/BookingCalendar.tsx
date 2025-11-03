@@ -95,7 +95,7 @@ export function BookingCalendar({ userId, onBookingComplete }: BookingCalendarPr
     : rooms.filter(r => r.room_type === roomTypeFilter);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <FilterBar
         currentDate={currentDate}
         onDateChange={setCurrentDate}

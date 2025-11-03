@@ -119,14 +119,14 @@ export function BookingDialog({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+        className="fixed inset-0 z-[70] bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
       {/* Dialog */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 sm:p-6 md:p-8">
         <div
-          className="w-full max-w-md rounded-2xl p-8 shadow-xl"
+          className="w-full max-w-lg rounded-2xl p-6 sm:p-7 md:p-8 shadow-xl"
           style={{ backgroundColor: 'var(--color-fm-surface)' }}
           onClick={(e) => e.stopPropagation()}
         >
