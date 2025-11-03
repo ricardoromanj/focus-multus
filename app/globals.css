@@ -1,35 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
+/* Dark Mode (Default) */
+:root {
+  --fm-bg: #0F1419;
+  --fm-surface: #1A1F26;
+  --fm-surface-elevated: #232931;
+  --fm-border: #2D3748;
+  --fm-text: #E5E7EB;
+  --fm-text-secondary: #9CA3AF;
+  --fm-text-tertiary: #6B7280;
+  --fm-aqua-400: #3DD6CE;
+  --fm-aqua-500: #22B5AD;
+  --fm-aqua-600: #1A9B94;
+  --fm-success: #34D399;
+  --fm-warning: #FBBF24;
+  --fm-critical: #F87171;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  --fm-bg: #F9FAFB;
+  --fm-surface: #FFFFFF;
+  --fm-surface-elevated: #F3F4F6;
+  --fm-border: #E5E7EB;
+  --fm-text: #111827;
+  --fm-text-secondary: #6B7280;
+  --fm-text-tertiary: #9CA3AF;
+  --fm-aqua-400: #14B8A6;
+  --fm-aqua-500: #0D9488;
+  --fm-aqua-600: #0F766E;
+  --fm-success: #10B981;
+  --fm-warning: #F59E0B;
+  --fm-critical: #EF4444;
+}
+
 @theme inline {
   /* Focus Multus Color Tokens */
-  --color-fm-bg: #0B0F14;
-  --color-fm-surface: #111827;
-  --color-fm-surface-elevated: #151B22;
-  --color-fm-border: #1F2937;
-  --color-fm-text: #E5E7EB;
-  --color-fm-text-secondary: #9CA3AF;
-  --color-fm-text-tertiary: #6B7280;
-  --color-fm-aqua-400: #59EFE1;
-  --color-fm-aqua-500: #2EE6D6;
-  --color-fm-aqua-600: #22C7BA;
-  --color-fm-success: #34D399;
-  --color-fm-warning: #FBBF24;
-  --color-fm-critical: #F87171;
+  --color-fm-bg: var(--fm-bg);
+  --color-fm-surface: var(--fm-surface);
+  --color-fm-surface-elevated: var(--fm-surface-elevated);
+  --color-fm-border: var(--fm-border);
+  --color-fm-text: var(--fm-text);
+  --color-fm-text-secondary: var(--fm-text-secondary);
+  --color-fm-text-tertiary: var(--fm-text-tertiary);
+  --color-fm-aqua-400: var(--fm-aqua-400);
+  --color-fm-aqua-500: var(--fm-aqua-500);
+  --color-fm-aqua-600: var(--fm-aqua-600);
+  --color-fm-success: var(--fm-success);
+  --color-fm-warning: var(--fm-warning);
+  --color-fm-critical: var(--fm-critical);
   
   /* Font families */
   --font-family-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  
+  /* Container configuration */
+  --container-padding-x: 1rem;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
 }
 
 body {
-  background: var(--color-fm-bg);
-  color: var(--color-fm-text);
+  background: var(--fm-bg);
+  color: var(--fm-text);
   font-family: var(--font-family-sans);
   font-weight: 400;
   font-size: 16px;
@@ -37,6 +73,48 @@ body {
   font-feature-settings: "tnum" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container styles with responsive padding */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.75rem; /* 28px */
+  padding-right: 1.75rem; /* 28px */
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2.25rem; /* 36px */
+    padding-right: 2.25rem; /* 36px */
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 3rem; /* 48px */
+    padding-right: 3rem; /* 48px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+  }
 }
 
 /* Typography utilities */
